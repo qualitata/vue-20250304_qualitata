@@ -4,7 +4,7 @@ const App = defineComponent({
     name: 'App',
     setup () {
         function formatAsLocalDate() {
-            return new Date().toLocaleDateString('en-US', { dateStyle: 'long' })
+            return new Date().toLocaleDateString(navigator.language, { dateStyle: 'long' })
         }
         
         return {
