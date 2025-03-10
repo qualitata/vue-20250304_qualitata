@@ -17,7 +17,7 @@ export default defineComponent({
 
       <ul class="weather-list unstyled-list">
         <li v-for="item in weatherData" class="weather-card"
-          :class="(item.current.dt >= item.current.sunrise) && (item.current.dt <= item.current.sunset) ? '' : 'weather-card--night'">
+          :class="{'weather-card--night' : !(item.current.dt >= item.current.sunrise && item.current.dt <= item.current.sunset)}">
           <div v-if="item.alert" class="weather-alert">
             <span class="weather-alert__icon">⚠️</span>
             <span class="weather-alert__description">{{ item.alert.sender_name }}: {{ item.alert.description }}</span>
