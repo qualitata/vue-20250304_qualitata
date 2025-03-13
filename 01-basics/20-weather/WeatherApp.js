@@ -29,7 +29,7 @@ export default defineComponent({
           :class="{ 'weather-card--night': isNight(weather.current.dt, weather.current.sunrise, weather.current.sunset) } ">
           <div v-if="weather.alert" class="weather-alert">
             <span class="weather-alert__icon">⚠️</span>
-            <span class="weather-alert__description">Королевская метеослужба короля Арагорна II: Предвещается наступление сильного шторма.</span>
+            <span class="weather-alert__description">{{ item.alert.sender_name }}: {{ item.alert.description }}</span>
           </div>
           <div>
             <h2 class="weather-card__name">
