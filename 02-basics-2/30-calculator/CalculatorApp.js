@@ -8,25 +8,21 @@ export default defineComponent({
     const b = ref(0)
     const operand = ref("sum")
 
-    const calculate = computed(() => {
-      const aValue = a.value;
-      const bValue = b.value;
-      const opValue = operand.value;
-
-      if (opValue === "sum") {
-        return aValue + bValue;
+    const result = computed(() => {
+      if (operand.value === "sum") {
+        return a.value + b.value;
       }
 
-      if (opValue === "subtract") {
-        return aValue - bValue;
+      if (operand.value === "subtract") {
+        return a.value - b.value;
       }
 
-      if (opValue === "multiply") {
-        return aValue * bValue;
+      if (operand.value === "multiply") {
+        return a.value * b.value;
       }
 
-      if (opValue === "divide") {
-        return aValue / bValue;
+      if (operand.value === "divide") {
+        return a.value / b.value;
       }
     })
 
@@ -34,7 +30,7 @@ export default defineComponent({
       a,
       b,
       operand,
-      calculate,
+      result,
     }
   },
 
@@ -53,7 +49,7 @@ export default defineComponent({
 
       <div>=</div>
 
-      <output>{{ calculate }}</output>
+      <output>{{ result }}</output>
     </div>
   `,
 })
