@@ -36,7 +36,13 @@ export default defineComponent({
     const filterString = ref('')
 
     const filteredEmails = computed(() => {
-      return filterString.value ? emails.filter(email => email.toLowerCase().includes(filterString.value.toLowerCase())) : []
+      const filteredEmails = []
+      
+      for (let i = 0; i < emails.length; i++) {
+        filteredEmails[i] = {email: emails[i], marked: filterString.value !== '' && emails[i].toLowerCase().includes(filterString.value.toLowerCase())}  
+      }
+
+      return filteredEmails
     })
 
     return {
@@ -52,8 +58,8 @@ export default defineComponent({
         <input type="search" aria-label="Search" v-model="filterString"/>
       </div>
       <ul aria-label="Emails">
-        <li v-for="email in emails" :class="{ marked: filteredEmails.includes(email) }">
-          {{ email }}
+        <li v-for="item in filteredEmails" :class="{ marked: item.marked }">
+          {{ item.email }}
         </li>
       </ul>
     </div>
