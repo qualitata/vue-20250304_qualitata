@@ -1,4 +1,4 @@
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref} from 'vue'
 
 export default defineComponent({
   name: 'MapApp',
@@ -21,6 +21,8 @@ export default defineComponent({
       x, 
       y,
       handleClick,
+      x,
+      y,
     }
   },
 
